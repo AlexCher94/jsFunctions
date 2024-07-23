@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let secondsInput = parseInt(prompt("Введите секунды"));
+
+        alert(showTime(secondsInput));
+
+        function showTime(totalSeconds) {
+            let hours = Math.floor(totalSeconds / 3600);
+            totalSeconds %= 3600;
+
+            let minutes = Math.floor(totalSeconds / 60);
+            let remainingSeconds = totalSeconds % 60;
+
+            hours = String(hours).padStart(2, '0');
+            minutes = String(minutes).padStart(2, '0');
+            remainingSeconds = String(remainingSeconds).padStart(2, '0');
+
+            return `${hours}:${minutes}:${remainingSeconds}`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let hours = parseInt(prompt("Введите часы"), 10);
+        let minutes = parseInt(prompt("Введите минуты"), 10);
+        let seconds = parseInt(prompt("Введите секунды"), 10);
+
+        alert(setTime(hours, minutes, seconds));
+
+        function setTime(hours, minutes, seconds) {
+            if (hours > 23 || minutes > 59 || seconds > 59 || hours < 0 || minutes < 0 || seconds < 0) {
+                return "Неверный формат";
+            } else {
+                let secInHours = hours * 3600;
+                let secInMinutes = minutes * 60;
+                let totalSeconds = secInHours + secInMinutes + seconds;
+                return totalSeconds;
+            }
+        }
+    </script>
+</body>
+
+</html>

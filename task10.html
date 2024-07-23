@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let hours1 = parseInt(prompt("Введите часы первой даты"));
+        let minutes1 = parseInt(prompt("Введите минуты первой даты"));
+        let seconds1 = parseInt(prompt("Введите секунды первой даты"));
+        let hours2 = parseInt(prompt("Введите часы второй даты"));
+        let minutes2 = parseInt(prompt("Введите минуты второй даты"));
+        let seconds2 = parseInt(prompt("Введите секунды второй даты"));
+        let difference = convertToSeconds(hours1, minutes1, seconds1, hours2, minutes2, seconds2);
+
+        alert(showTime(difference));
+
+        function convertToSeconds(hours1, minutes1, seconds1, hours2, minutes2, seconds2) {
+            if (hours1 > 23 || minutes1 > 59 || seconds1 > 59 || hours2 > 23 || minutes2 > 59 || seconds2 > 59) {
+                return alert("Неверный формат времени");
+            } else {
+                let totalSeconds1 = hours1 * 3600 + minutes1 * 60 + seconds1;
+                let totalSeconds2 = hours2 * 3600 + minutes2 * 60 + seconds2;
+                let difference = Math.abs(totalSeconds1 - totalSeconds2);
+
+                return difference;
+            }
+        }
+
+        function showTime(difference) {
+            let hours = Math.floor(difference / 3600);
+            difference %= 3600;
+
+            let minutes = Math.floor(difference / 60);
+            let remainingSeconds = difference % 60;
+
+            hours = String(hours).padStart(2, '0');
+            minutes = String(minutes).padStart(2, '0');
+            remainingSeconds = String(remainingSeconds).padStart(2, '0');
+
+            return `${hours}:${minutes}:${remainingSeconds}`;
+        }
+
+
+    </script>
+</body>
+
+</html>
